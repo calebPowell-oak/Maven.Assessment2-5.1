@@ -26,6 +26,9 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        return null;
+        if(startingIndex > arrayToBeSpliced.length - 1) throw new IllegalArgumentException();
+        if(startingIndex < 0) throw new IndexOutOfBoundsException();
+
+        return getSubArray(arrayToBeSpliced, startingIndex, arrayToBeSpliced.length);
     }
 }
