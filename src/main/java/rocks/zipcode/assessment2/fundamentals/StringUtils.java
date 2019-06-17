@@ -10,7 +10,13 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        StringBuilder s = new StringBuilder(stringToBePadded);
+        if(stringToBePadded.length() < amountOfPadding){
+            for(int i = 0; i < amountOfPadding - stringToBePadded.length(); i++){
+                s.insert(0, " ");
+            }
+        }
+        return s.toString();
     }
 
     /**
@@ -19,7 +25,13 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        StringBuilder s = new StringBuilder(stringToBePadded);
+        if(stringToBePadded.length() < amountOfPadding){
+            for(int i = 0; i < amountOfPadding - stringToBePadded.length(); i++){
+                s.append(" ");
+            }
+        }
+        return s.toString();
     }
 
     /**
@@ -28,7 +40,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String r = "";
+        for(int i = 0; i < numberOfTimeToRepeat; i++){
+            r += stringToBeRepeated;
+        }
+        return r;
     }
 
     /**
@@ -36,7 +52,7 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        return string.matches("[A-Za-z ]+");
     }
 
     /**
@@ -44,7 +60,7 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        return string.matches("\\d+");
     }
 
     /**
@@ -52,6 +68,6 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        return string.matches("\\W+");
     }
 }
