@@ -50,16 +50,25 @@ public class Person {
     @Override
     public boolean equals(Object o) {
         if(o instanceof Person){
-            if((((Person)o).getAddress() == null) ||
-                    (((Person)o).getId() == null) ||
-                    (((Person)o).getName() == null))
-                return false;
-            if((address == null) || (id == null) || (name == null))
-                return false;
-            if((this.id.equals(((Person)o).getId()))){
+            Person t = (Person)o;
+            if(id == null || t.getId() == null){
+                if(id != t.getId()){
+                    return false;
+                } else if(id == t.getId()) return true;
+            }
+            if(name == null || t.getName() == null){
+                if(name != t.getName()){
+                    return false;
+                } else if(name == t.getName()) return true;
+            }
+            if(address == null || t.getAddress() == null){
+                if(address != t.getAddress()){
+                    return false;
+                } else if(address == t.getAddress()) return true;
+            }
+            if(id.longValue() == t.getId().longValue()){
                 return true;
             }
-
         }
         return false;
     }
